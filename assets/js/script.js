@@ -171,6 +171,7 @@ nextBtn.addEventListener("click", function() {
     arraySelect = arraySelect + 1;
     theNumber =  theNumber + 1;
     questionNumber.textContent = theNumber
+    answerCheck.textContent = " "
     displayQA();
     validate();
 
