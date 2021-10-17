@@ -1,7 +1,7 @@
 // Variables
 var quizContainer = document.querySelector("#quiz-container")
-//var listContainer = document.querySelector(".list-container")
 var quizQuestion = document.querySelector("#quiz-question")
+
 var quizLi1 = document.querySelector(".answer1")
 var quizLi2 = document.querySelector(".answer2")
 var quizLi3 = document.querySelector(".answer3")
@@ -13,12 +13,6 @@ var startBtnEl = document.querySelector("#start-btn")
 var answerCheck = document.querySelector(".answer-check")
 var scoreDiv = document.querySelector("#score-board")
 
-//var nextBtn = document.querySelector(".next")
-
-//var counter = 0; 
-
-
-
 // Questions
 var questionsArray = [
     {
@@ -28,8 +22,8 @@ var questionsArray = [
     },
     {
         question: "What is the correct syntax for a function?", 
-        answers: ["fucntion (){}", "function ()", "var=function", "function"],
-        correctAnswer: "fucntion (){}"
+        answers: ["function (){}", "function ()", "var=function", "function"],
+        correctAnswer: "function (){}"
     },
     {
         question: "Where should should you link your js file in the index.html?",
@@ -64,6 +58,8 @@ timerEl.textContent = time
 //         counter++;
 //     })
 // }
+
+// Hide Score board page and function to show it later
 scoreDiv.classList.add("hidden")
 var scoreBoard = function() {
     scoreDiv.classList.remove("hidden")
@@ -84,7 +80,8 @@ var startTimer = setInterval(function() {
         clearInterval(startTimer);
     }   
 }, 1000)
-//Show question
+
+//Show question number at top
 displayQA()
 theNumber = 1
 questionNumber.textContent = theNumber
@@ -101,6 +98,7 @@ var displayQA = function() {
     quizLi4.textContent = questionsArray[arraySelect].answers[3]
 }
 displayQA();
+console.log("arraySelect outside of function is " + arraySelect)
 
 // Validate if questions clicked are correct
 var validate = function() {
@@ -158,7 +156,9 @@ for(var i = 0; i < userChoices.length; i++) {
     
             } else {
 
+
             arraySelect = arraySelect + 1;
+            console.log("arraySelect is " + arraySelect)
             theNumber =  theNumber + 1;
             questionNumber.textContent = theNumber
             displayQA();
