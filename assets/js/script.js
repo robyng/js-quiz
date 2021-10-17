@@ -1,4 +1,4 @@
-
+// Variables
 var quizContainer = document.querySelector("#quiz-container")
 var listContainer = document.querySelector(".list-container")
 var quizQuestion = document.querySelector("#quiz-question")
@@ -7,18 +7,17 @@ var quizLi2 = document.querySelector(".answer2")
 var quizLi3 = document.querySelector(".answer3")
 var quizLi4 = document.querySelector(".answer4")
 
-//var allLi = quizLi1 + quizLi2
 var questionNumber = document.querySelector("#question-number")
 var startQuizDiv = document.querySelector("#start-quiz")
 var startBtnEl = document.querySelector("#start-btn")
 var answerCheck = document.querySelector(".answer-check")
-var nextBtn = document.querySelector(".next")
+//var nextBtn = document.querySelector(".next")
 
-var counter = 0; 
+//var counter = 0; 
 
 
 
-//Questions
+// Questions
 var questionsArray = [
     {
         question: "What symbol defines content of an array?", 
@@ -41,23 +40,8 @@ var questionsArray = [
         correctAnswer: "does not equal"
     }
 ];
-// var q1 = "What symbol defines content of an array?"
-// var choicesQ1 = ['brackets', 'parenteses', 'quotes', 'carrots']
-// var answerQ1 = 'brackets'
 
-// var questionObject = {
-//     question: q1, 
-//     answers: choicesQ1,
-//     correctAnswer: answerQ1
-// }
-// questionsArray.push(questionObject)
-
-// var q2 = "What is the correct syntax for a function?"
-// var choicesQ2 = ["fucntion (){}", "function ()", "var=function", "function"]
-// var answerQ2 = "function (){}"
-// var questionNum = 1
-
-
+// Timer
 var time = 60 
 var timerEl = document.querySelector("#time-left")
 timerEl.textContent = time
@@ -70,7 +54,7 @@ timerEl.textContent = time
 //         var currentQuestion = questionsArray[counter];
 //         var target = event.target;
 
-//         // comparen answer from currentQuestion and target
+//         // compare answer from currentQuestion and target
 //         console.log("target", target);
 
 //         // do any other programming stuff needed like updating ui or other
@@ -78,10 +62,6 @@ timerEl.textContent = time
 //         counter++;
 //     })
 // }
-//questionNum = questionNum + 1 
-
-
-
 
 // Start quiz
 var startQuiz = function() {
@@ -102,14 +82,10 @@ var startTimer = setInterval(function() {
 displayQA()
 theNumber = 1
 questionNumber.textContent = theNumber
-
-
 }
 
-arraySelect = 0
-
-
 //when start button pressed start quiz
+arraySelect = 0
 startBtnEl.addEventListener("click", startQuiz)
 var displayQA = function() {
     quizQuestion.textContent = questionsArray[arraySelect].question
@@ -120,12 +96,7 @@ var displayQA = function() {
 }
 displayQA();
 
-// var questionsArray = [
-//     {
-//         question: "What symbol defines content of an array?", 
-//         answers: ['brackets', 'parenteses', 'quotes', 'carrots'],
-//         correctAnswer: 'brackets'
-//     },
+// Validate if questions clicked are correct
 var validate = function () {
     var validateSelection = questionsArray[arraySelect].correctAnswer
     //click on li and see if matches correct answer
@@ -134,7 +105,7 @@ var validate = function () {
         if (questionsArray[arraySelect].answers[0] == validateSelection){
         answerCheck.textContent = "Correct!"
     } else {
-        answerCheck.textContent = "Wrong!"
+        answerCheck.textContent = "Wrong! 10 seconds deducted."
     }
     
     })
@@ -143,7 +114,7 @@ var validate = function () {
             if (questionsArray[arraySelect].answers[1] == validateSelection){
             answerCheck.textContent = "Correct!"
         } else {
-            answerCheck.textContent = "Wrong!"
+            answerCheck.textContent = "Wrong! 10 seconds deducted."
         }
     })
     
@@ -151,7 +122,7 @@ var validate = function () {
             if (questionsArray[arraySelect].answers[2] == validateSelection){
             answerCheck.textContent = "Correct!"
         } else {
-            answerCheck.textContent = "Wrong!"
+            answerCheck.textContent = "Wrong! 10 seconds deducted."
         }
     })
     
@@ -159,27 +130,34 @@ var validate = function () {
             if (questionsArray[arraySelect].answers[3] == validateSelection){
             answerCheck.textContent = "Correct!"
         } else {
-            answerCheck.textContent = "Wrong!"
+            answerCheck.textContent = "Wrong! 10 seconds deducted."
         }
     })
 
 }
 validate();
 
-//next button for next question
-nextBtn.addEventListener("click", function() {
-    arraySelect = arraySelect + 1;
-    theNumber =  theNumber + 1;
-    questionNumber.textContent = theNumber
-    answerCheck.textContent = " "
-    displayQA();
-    validate();
+// Move to next question after click
+var userChoices = [quizLi1, quizLi2, quizLi3, quizLi4]
+for(var i = 0; i < userChoices.length; i++) {
+        var btn = userChoices[i];
+        btn.addEventListener('click', function(event){
+            arraySelect = arraySelect + 1;
+            theNumber =  theNumber + 1;
+            questionNumber.textContent = theNumber
+            displayQA();
+            validate();
 
-})
+        })
+    }
 
 
-// var correct = function() {
-//     answerCheck.textContent = "Correct!"
-// }
+// btn.addEventListener("click", function() {
+//     arraySelect = arraySelect + 1;
+//     theNumber =  theNumber + 1;
+//     questionNumber.textContent = theNumber
+//     answerCheck.textContent = " "
+//     displayQA();
+//     validate();
 
-//Answers
+// })
