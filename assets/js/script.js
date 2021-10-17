@@ -11,6 +11,8 @@ var questionNumber = document.querySelector("#question-number")
 var startQuizDiv = document.querySelector("#start-quiz")
 var startBtnEl = document.querySelector("#start-btn")
 var answerCheck = document.querySelector(".answer-check")
+var scoreDiv = document.querySelector("#score-board")
+
 //var nextBtn = document.querySelector(".next")
 
 //var counter = 0; 
@@ -62,8 +64,12 @@ timerEl.textContent = time
 //         counter++;
 //     })
 // }
+scoreDiv.classList.add("hidden")
+var scoreBoard = function() {
+    scoreDiv.classList.remove("hidden")
+}
 
-// Start quiz
+// Start quiz by adding class hidden to first page and removing hidden to quiz container
 var startQuiz = function() {
 quizContainer.classList.remove("hidden")
 
@@ -144,7 +150,8 @@ for(var i = 0; i < userChoices.length; i++) {
         btn.addEventListener('click', function(event){
             if (theNumber == 4) {
                 btn.addEventListener('click', function(event){
-                    window.prompt("Type initals to record your score")
+                    quizContainer.classList.add("hidden")
+                    scoreBoard()
         
                 })
     
@@ -162,6 +169,8 @@ for(var i = 0; i < userChoices.length; i++) {
 
 
     }
+
+
 
 
 // btn.addEventListener("click", function() {
