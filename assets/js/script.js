@@ -142,13 +142,25 @@ var userChoices = [quizLi1, quizLi2, quizLi3, quizLi4]
 for(var i = 0; i < userChoices.length; i++) {
         var btn = userChoices[i];
         btn.addEventListener('click', function(event){
+            if (theNumber == 4) {
+                btn.addEventListener('click', function(event){
+                    window.prompt("Type initals to record your score")
+        
+                })
+    
+            } else {
+
             arraySelect = arraySelect + 1;
             theNumber =  theNumber + 1;
             questionNumber.textContent = theNumber
             displayQA();
             validate();
 
+            }
+
         })
+
+
     }
 
 
