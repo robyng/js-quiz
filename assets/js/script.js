@@ -1,6 +1,6 @@
 // Variables
 var quizContainer = document.querySelector("#quiz-container")
-var listContainer = document.querySelector(".list-container")
+//var listContainer = document.querySelector(".list-container")
 var quizQuestion = document.querySelector("#quiz-question")
 var quizLi1 = document.querySelector(".answer1")
 var quizLi2 = document.querySelector(".answer2")
@@ -24,7 +24,7 @@ var questionsArray = [
     {
         question: "What symbol defines content of an array?", 
         answers: ['brackets', 'parenteses', 'quotes', 'carrots'],
-        correctAnswer: 'brackets'
+        correctAnswer: "brackets"
     },
     {
         question: "What is the correct syntax for a function?", 
@@ -103,7 +103,7 @@ var displayQA = function() {
 displayQA();
 
 // Validate if questions clicked are correct
-var validate = function () {
+var validate = function() {
     var validateSelection = questionsArray[arraySelect].correctAnswer
     //click on li and see if matches correct answer
     quizLi1.addEventListener("click", function(){
@@ -148,12 +148,13 @@ var userChoices = [quizLi1, quizLi2, quizLi3, quizLi4]
 for(var i = 0; i < userChoices.length; i++) {
         var btn = userChoices[i];
         btn.addEventListener('click', function(event){
-            if (theNumber == 4) {
-                btn.addEventListener('click', function(event){
-                    quizContainer.classList.add("hidden")
-                    scoreBoard()
+            if (theNumber === questionsArray.length) {
+                console.log(theNumber)
+                quizContainer.classList.add("hidden")
+                scoreBoard()
+                //validate();
         
-                })
+            
     
             } else {
 
