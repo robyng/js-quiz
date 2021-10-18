@@ -38,7 +38,7 @@ var questionsArray = [
 ];
 
 // Timer
-var time = 60 
+var time = 5 
 var timerEl = document.querySelector("#time-left")
 timerEl.textContent = time
 
@@ -71,13 +71,16 @@ quizContainer.classList.remove("hidden")
 
 startQuizDiv.classList.add("hidden")
 //startTimer() Timer countdown, clearInterval at 0
+
+
 var startTimer = setInterval(function() {
     
-    if (time > 0) {
+    if (time >= 1) {
         time = time - 1
         timerEl.textContent = time
-    } else {
-        clearInterval(startTimer);
+        
+    }else {
+        endGame()
     }   
 }, 1000)
 
@@ -98,7 +101,6 @@ var displayQA = function() {
     quizLi4.textContent = questionsArray[arraySelect].answers[3]
 }
 displayQA();
-console.log("arraySelect outside of function is " + arraySelect)
 
 // Validate if questions clicked are correct
 var validate = function() {
@@ -141,6 +143,15 @@ var validate = function() {
 }
 validate();
 
+// End Game function
+var endGame = function(){
+    scoreBoard();
+    quizContainer.classList.add("hidden");
+    clearInterval(startQuiz);
+    time = 0
+    
+}
+
 // Move to next question after click
 var userChoices = [quizLi1, quizLi2, quizLi3, quizLi4]
 for(var i = 0; i < userChoices.length; i++) {
@@ -148,14 +159,9 @@ for(var i = 0; i < userChoices.length; i++) {
         btn.addEventListener('click', function(event){
             if (theNumber === questionsArray.length) {
                 console.log(theNumber)
-                quizContainer.classList.add("hidden")
-                scoreBoard()
-                //validate();
-        
-            
-    
-            } else {
+                endGame();
 
+            } else {
 
             arraySelect = arraySelect + 1;
             console.log("arraySelect is " + arraySelect)
