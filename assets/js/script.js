@@ -38,7 +38,7 @@ var questionsArray = [
 ];
 
 // Timer
-var time = 5 
+var time = 60 
 var timerEl = document.querySelector("#time-left")
 timerEl.textContent = time
 
@@ -70,9 +70,8 @@ var startQuiz = function() {
 quizContainer.classList.remove("hidden")
 
 startQuizDiv.classList.add("hidden")
+
 //startTimer() Timer countdown, clearInterval at 0
-
-
 var startTimer = setInterval(function() {
     
     if (time >= 1) {
@@ -92,6 +91,7 @@ questionNumber.textContent = theNumber
 
 //when start button pressed start quiz
 arraySelect = 0
+//answersIndex = 0
 startBtnEl.addEventListener("click", startQuiz)
 var displayQA = function() {
     quizQuestion.textContent = questionsArray[arraySelect].question
@@ -102,11 +102,15 @@ var displayQA = function() {
 }
 displayQA();
 
+
 // Validate if questions clicked are correct
 var validate = function() {
     var validateSelection = questionsArray[arraySelect].correctAnswer
     //click on li and see if matches correct answer
     quizLi1.addEventListener("click", function(){
+        console.log(questionsArray[arraySelect].answers[0])
+        console.log(validateSelection)
+        console.log(arraySelect)
     
         if (questionsArray[arraySelect].answers[0] == validateSelection){
         answerCheck.textContent = "Correct!"
@@ -117,6 +121,8 @@ var validate = function() {
     })
     
     quizLi2.addEventListener("click", function(){
+        console.log(questionsArray[arraySelect].answers[1])
+        console.log(validateSelection)
             if (questionsArray[arraySelect].answers[1] == validateSelection){
             answerCheck.textContent = "Correct!"
         } else {
@@ -125,6 +131,8 @@ var validate = function() {
     })
     
     quizLi3.addEventListener("click", function(){
+        console.log(questionsArray[arraySelect].answers[2])
+        console.log(validateSelection)
             if (questionsArray[arraySelect].answers[2] == validateSelection){
             answerCheck.textContent = "Correct!"
         } else {
@@ -133,14 +141,18 @@ var validate = function() {
     })
     
     quizLi4.addEventListener("click", function(){
+        console.log(questionsArray[arraySelect].answers[3])
+        console.log(validateSelection)
             if (questionsArray[arraySelect].answers[3] == validateSelection){
             answerCheck.textContent = "Correct!"
         } else {
             answerCheck.textContent = "Wrong! 10 seconds deducted."
         }
     })
+    //console.log("validateSelection var = " + validateSelection)
 
-}
+} 
+
 validate();
 
 // End Game function
@@ -153,22 +165,43 @@ var endGame = function(){
 }
 
 // Move to next question after click
+
 var userChoices = [quizLi1, quizLi2, quizLi3, quizLi4]
 for(var i = 0; i < userChoices.length; i++) {
         var btn = userChoices[i];
         btn.addEventListener('click', function(event){
             if (theNumber === questionsArray.length) {
-                console.log(theNumber)
+                
                 endGame();
 
             } else {
+                arraySelect = arraySelect + 1;
+                //answersIndex = answersIndex + 1;
+                theNumber = theNumber + 1;
+                questionNumber.textContent = theNumber
+                displayQA();
+                validate();
+               
+            
+            
 
-            arraySelect = arraySelect + 1;
-            console.log("arraySelect is " + arraySelect)
-            theNumber =  theNumber + 1;
-            questionNumber.textContent = theNumber
-            displayQA();
-            validate();
+            // var validate = function() {
+            //     var validateSelection = questionsArray[arraySelect].correctAnswer
+            
+            //     if (btn == validateSelection){
+            //                 answerCheck.textContent = "Last question was Correct!"
+            //             } else {
+            //                 answerCheck.textContent = "Last question was wrong! 10 seconds deducted."
+            //             }
+            //             console.log("validateSelection var = " + validateSelection)
+            //             console.log("questionsArray[arraySelect].answers[answersIndex] = " + questionsArray[arraySelect])
+            //             console.log("arraySelect is = " + arraySelect)
+            //             console.log("answersIndex is " + answersIndex)
+            // }
+
+           
+            
+            
 
             }
 
@@ -176,16 +209,3 @@ for(var i = 0; i < userChoices.length; i++) {
 
 
     }
-
-
-
-
-// btn.addEventListener("click", function() {
-//     arraySelect = arraySelect + 1;
-//     theNumber =  theNumber + 1;
-//     questionNumber.textContent = theNumber
-//     answerCheck.textContent = " "
-//     displayQA();
-//     validate();
-
-// })
