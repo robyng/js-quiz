@@ -45,23 +45,6 @@ var time = 60
 var timerEl = document.querySelector("#time-left")
 timerEl.textContent = time
 
-//from Alif, how to get all li in one variable
-// var answerButtons = [quizLi1, quizLi2, quizLi3, quizLi4]
-// for(var i = 0; i < answerButtons.length; i++) {
-//     var btn = answerButtons[i];
-//     btn.addEventListener('click', function(event){
-//         var currentQuestion = questionsArray[counter];
-//         var target = event.target;
-
-//         // compare answer from currentQuestion and target
-//         console.log("target", target);
-
-//         // do any other programming stuff needed like updating ui or other
-
-//         counter++;
-//     })
-// }
-
 // Hide Score board page and function to show it later
 scoreDiv.classList.add("hidden")
 var scoreBoard = function () {
@@ -133,48 +116,6 @@ var validate = function () {
 }
 validate()
 
-// console.log(questionsArray[arraySelect].answers[0])
-// console.log(validateSelection)
-// console.log(arraySelect)
-// console.log(theClick.textContent)
-// console.log(userChoices)
-// console.log(validateSelection)
-
-// quizLi2.addEventListener("click", function(){
-//     console.log(questionsArray[arraySelect].answers[1])
-//     console.log(validateSelection)
-//         if (questionsArray[arraySelect].answers[1] == validateSelection){
-//         answerCheck.textContent = "Correct!"
-//     } else {
-//         answerCheck.textContent = "Wrong! 10 seconds deducted."
-//     }
-// })
-
-// quizLi3.addEventListener("click", function(){
-//     console.log(questionsArray[arraySelect].answers[2])
-//     console.log(validateSelection)
-//         if (questionsArray[arraySelect].answers[2] == validateSelection){
-//         answerCheck.textContent = "Correct!"
-//     } else {
-//         answerCheck.textContent = "Wrong! 10 seconds deducted."
-//     }
-// })
-
-// quizLi4.addEventListener("click", function(){
-//     console.log(questionsArray[arraySelect].answers[3])
-//     console.log(validateSelection)
-//         if (questionsArray[arraySelect].answers[3] == validateSelection){
-//         answerCheck.textContent = "Correct!"
-//     } else {
-//         answerCheck.textContent = "Wrong! 10 seconds deducted."
-//     }
-// })
-//console.log("validateSelection var = " + validateSelection)
-
-
-
-//validate();
-
 // End Game function
 var endGame = function () {
     scoreBoard();
@@ -185,7 +126,6 @@ var endGame = function () {
 }
 
 // Move to next question after click
-
 var quizLoop = function () {
 
     var userChoices = [quizLi1, quizLi2, quizLi3, quizLi4]
@@ -215,27 +155,6 @@ inputBtn.addEventListener('click', function(){
     var initals = inputName.value
     var tdEl = document.createElement('td')
     tdEl.textContent = initals + time
-    
+
 })
 //event listener for highscore and add to local storage
-
-
-            // var validate = function() {
-            //     var validateSelection = questionsArray[arraySelect].correctAnswer
-
-            //     if (btn == validateSelection){
-            //                 answerCheck.textContent = "Last question was Correct!"
-            //             } else {
-            //                 answerCheck.textContent = "Last question was wrong! 10 seconds deducted."
-            //             }
-            //             console.log("validateSelection var = " + validateSelection)
-            //             console.log("questionsArray[arraySelect].answers[answersIndex] = " + questionsArray[arraySelect])
-            //             console.log("arraySelect is = " + arraySelect)
-            //             console.log("answersIndex is " + answersIndex)
-            // }
-
-
-
-
-
-
