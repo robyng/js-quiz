@@ -129,32 +129,37 @@ var endGame = function () {
 var quizLoop = function () {
 
     var userChoices = [quizLi1, quizLi2, quizLi3, quizLi4]
-    //for(var i = 0; i < userChoices.length; i++) {
-    //        var btn = userChoices[i];
-    //        btn.addEventListener('click', function(event){
+
     if (theNumber === questionsArray.length) {
 
         endGame();
 
     } else {
         arraySelect = arraySelect + 1;
-        //answersIndex = answersIndex + 1;
+
         theNumber = theNumber + 1;
         questionNumber.textContent = theNumber
         displayQA();
-        //validate();
 
 
     }
 }
+
+var yourScoreDiv = document.querySelector(".your-score")
 
 //append tr to table
 // append td to tr
 //event listener for btn for input and add to local storage key values string 
 inputBtn.addEventListener('click', function(){
     var initals = inputName.value
-    var tdEl = document.createElement('td')
-    tdEl.textContent = initals + time
+    
+    //var scoreP = document.createElement('p')
+    
+    //yourScoreDiv.textContent = initals + ": " + time
+    //scoreP.appendChild(yourScoreDiv);
 
-})
+    var spanResult = document.getElementById('result') 
+    
+    spanResult.textContent = initals
+          })
 //event listener for highscore and add to local storage
