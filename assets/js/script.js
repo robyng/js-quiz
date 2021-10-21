@@ -122,6 +122,7 @@ var endGame = function () {
     quizContainer.classList.add("hidden");
     clearInterval(startQuiz);
     time = 0
+    score.innerHTML = timerEl.textContent
 
 }
 
@@ -153,16 +154,15 @@ var score = document.querySelector(".score")
 //event listener for btn for input and add to local storage key values string 
 inputBtn.addEventListener('click', function(){
     var initals = inputName.value
-    
-    //var scoreP = document.createElement('p')
-    
-    //yourScoreDiv.textContent = initals + ": " + time
-    //scoreP.appendChild(yourScoreDiv);
-
-    score.innerHTML = timerEl.textContent
 
     var spanResult = document.getElementById('result') 
     
     spanResult.innerHTML = initals + "  |  " + timerEl.textContent
           })
-//event listener for highscore and add to local storage
+//event listener for play again button
+var playBtn = document.querySelector(".play")
+
+playBtn.addEventListener('click', function(){
+    window.location.reload()
+    
+})
