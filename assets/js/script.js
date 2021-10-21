@@ -146,6 +146,7 @@ var quizLoop = function () {
 }
 
 var yourScoreDiv = document.querySelector(".your-score")
+var score = document.querySelector(".score")
 
 //append tr to table
 // append td to tr
@@ -158,8 +159,10 @@ inputBtn.addEventListener('click', function(){
     //yourScoreDiv.textContent = initals + ": " + time
     //scoreP.appendChild(yourScoreDiv);
 
+    score.innerHTML = timerEl.textContent
+
     var spanResult = document.getElementById('result') 
     
-    spanResult.textContent = initals
+    spanResult.innerHTML = initals + "  |  " + timerEl.textContent
           })
 //event listener for highscore and add to local storage
