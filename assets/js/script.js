@@ -148,9 +148,9 @@ var quizLoop = function () {
 
 var yourScoreDiv = document.querySelector(".your-score")
 var score = document.querySelector(".score")
-
+var formInput = document.querySelector("#initials-input")
 //event listener for btn for input and add to local storage key values string 
-inputBtn.addEventListener('click', function(){
+formInput.addEventListener('submit', function(){
     var initals = inputName.value
 
     var spanResult = document.getElementById('result') 

@@ -28,18 +28,22 @@
 </div>
 
 <div id="score-board">
-<h1>Congrats!</h1>
-<h2>Your Score is: <span class="score"></span></h2>
-<h3>Enter your initials to save your score</h3>
-<input class="inputName">
-<button class='inputBtn' type='submit'>Submit</button>
- 
-<div class="your-score">
-    <h3>High Scores</h3>
-    <br />
-    <span id="result"></span>
-    <p>Think you can do better?</p>
-    <button class='play'>Play Again</button>
+    <h1>Congrats!</h1>
+    <h2>Your Score is: <span class="score"></span></h2>
+    <h3>Enter your initials to save your score</h3>
+    
+    <form id="initials-input">   
+        <input class="inputName">
+        <button class='inputBtn' type='submit'>Submit</button>
+    </form>
+    
+    <div class="your-score">
+        <h3>High Scores</h3>
+        <br />
+        <span id="result"></span>
+        <p>Think you can do better?</p>
+        <button class='play'>Play Again</button>
+    </div>
 </div>
     <script src="assets/js/script.js"></script>
 </body>
