@@ -48,6 +48,9 @@ timerEl.textContent = time
 // Hide Score board page and function to show it later
 scoreDiv.classList.add("hidden")
 var scoreBoard = function () {
+    var score = localStorage.getItem("highScore")
+    var spanResult = document.getElementById('result')     
+    spanResult.innerHTML = score
     scoreDiv.classList.remove("hidden")
 }
 
@@ -137,7 +140,6 @@ var quizLoop = function () {
 
     } else {
         arraySelect = arraySelect + 1;
-
         theNumber = theNumber + 1;
         questionNumber.textContent = theNumber
         displayQA();
@@ -156,6 +158,7 @@ formInput.addEventListener('submit', function(){
     var spanResult = document.getElementById('result') 
     
     spanResult.innerHTML = initals + "  |  " + timerEl.textContent
+    localStorage.setItem("highScore", initals + "  |  " + timerEl.textContent)
           })
 //event listener for play again button
 var playBtn = document.querySelector(".play")
